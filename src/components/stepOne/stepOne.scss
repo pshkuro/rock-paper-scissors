@@ -1,0 +1,9 @@
+.game__board__step-one {
+  background: url('../../images/bg-triangle.svg') no-repeat center;
+  background-size: 50%;
+  display: flex;
+  justify-content: space-around;
+  width: 600px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}

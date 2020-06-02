@@ -1,0 +1,58 @@
+@import './typography.scss';
+
+@mixin button_theme($name, $primary_color, $accent_color, $bg_color: transparent) {
+  &_#{$name} {
+    border-color: $primary_color;
+    color: $primary_color;
+    background-color: $bg_color;
+
+    &:hover {
+      background-color: $primary_color;  
+      color: $accent_color;
+      @if ($bg_color) {
+        border-color: $bg_color;
+      } @else {
+        border-color: $primary_color;
+      }
+    }
+  }
+}
+
+// Reset user agent styles
+.button {
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 8px;
+}
+
+// Typogrpahy button styles
+.button {
+  font-family: inherit;
+  text-align: center;
+  text-transform: uppercase;
+  @include typography(body_s);
+}
+
+// Base button styles
+.button {
+  min-width: 128px;
+  min-height: 40px;
+  border: 1px solid transparent;
+}
+
+// Button theme styles
+.button {
+  &:disabled {
+    opacity: 0.25;
+  }
+
+  &:active, &:focus {
+    outline: none;
+  }
+
+  &_theme {
+    @include button_theme(transparent,  #ffffff, hsl(229, 24.8%, 30.8%));
+    @include button_theme(white, hsl(229, 24.8%, 30.8%), hsl(349, 70.6%, 52%), #ffffff);
+  }
+}

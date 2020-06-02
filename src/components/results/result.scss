@@ -1,0 +1,21 @@
+.game__header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 700px;
+  padding: 18px 33px;;
+  border: 3px hsla(0, 0%, 100%, 0.29) solid;
+  border-radius: 15px;
+  margin: 0 auto;
+
+  &__title {
+    margin: 10px 0;
+  }
+
+  .game__results {
+    padding: 18px 45px;
+    background-color: #ffffff;
+    border-radius: 15px;
+  }
+
+
+}

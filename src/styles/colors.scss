@@ -1,0 +1,15 @@
+$status-colors: (
+  white: hsl(0, 0%, 100%),
+  dark-blue: hsl(229, 24.8%, 30.8%),
+  light-blue: hsl(229, 64.4%, 46.3%),
+  red-rose: hsl(349, 70.6%, 52%),
+  grey: hsl(246, 10.6%, 36.9%),
+);
+
+.color {
+  @each $status, $color in $status-colors {
+    &-#{$status} {
+      color: $color;
+    }
+  }
+}

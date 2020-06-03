@@ -1,8 +1,7 @@
 import React from 'react';
 import Figure from '../figure/Figure';
 import '../stepOne/stepOne.scss';
-
-const FIGURES = ["paper", "scissors", "rock"];
+import {FIGURES} from '../../const';
 
 export default class StepOne extends React.Component {
   render() {

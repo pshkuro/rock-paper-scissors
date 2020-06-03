@@ -4,12 +4,13 @@ import Figure from '../figure/Figure';
 
 export default class StepTwo extends React.Component {
   render() {
-    
+    if (!this.props.value) return null;
+
     return(
       <div className="game__board__step-two">
         <div className="step-two__figure step-two__figure__user">
           <p className="font-body_m color-white step-two__member-name">YOU PICKED</p>
-          <Figure value="paper"/>
+          <Figure value={this.props.value}/>
         </div>
         <div className="step-two__winner-status">
           <h2 className="font-head_l color-white">YOU WIN</h2>

@@ -2,14 +2,22 @@ import React from 'react';
 import Figure from '../figure/Figure';
 import '../stepOne/stepOne.scss';
 
+const FIGURES = ["paper", "scissors", "rock"];
+
 export default class StepOne extends React.Component {
   render() {
+    if (this.props.value) return null;
+
     return (
       <div className="game__board__step-one">
-        <Figure value="paper"/>
-        <Figure value="scissors"/>
-        <Figure value="rock"/>
+        {FIGURES.map((figure) => {
+          return <Figure
+                  value={figure}
+                  onClick={(value) => this.props.setValue(value)}
+                  key={figure}/>
+        })}
       </div>
     );
   }
+
 }

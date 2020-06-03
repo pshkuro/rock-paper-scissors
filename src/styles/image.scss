@@ -1,5 +1,12 @@
+$height: 80px;
+
 .img__figure {
-  max-height: 80px;
-  height: 80px;
+  height: $height;
   width: auto;
+}
+
+.game__board__step-two {
+  .img__figure {
+    height: 120px;
+  }
 }

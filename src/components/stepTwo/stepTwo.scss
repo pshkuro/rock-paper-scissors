@@ -1,0 +1,40 @@
+.game__board__step-two {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+
+  .game__figure {
+    width: 225px;
+    height: 225px;
+    border-width: 33px;
+  }
+
+
+  .step-two {
+
+    &__figure {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+
+      &__rival-empty {
+        width: 225px;
+        height: 225px;
+        background-color: hsla(0, 0%, 0%, 0.1);
+        border-radius: 50%;
+        margin-top: 33px;
+      }
+    }
+
+    &__winner-status {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    &__member-name {
+      margin-bottom: 65px;
+    }
+  }
+}

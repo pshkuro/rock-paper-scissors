@@ -10,7 +10,7 @@ export default class Results extends React.Component {
            SCISSORS</h3>
         <div className="game__results">
           <p className ="font-body_s color-light-blue">SCORE</p>
-          <h1 className="font-head_xl color-grey">0</h1>
+        <h1 className="font-head_xl color-grey">{this.props.value}</h1>
         </div>
       </div>
     );

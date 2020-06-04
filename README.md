@@ -1,2 +1,2 @@
--case when user and rival figures =;
+
 -click on figure on step 2;

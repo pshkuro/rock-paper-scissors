@@ -16,6 +16,7 @@ export default class StepTwo extends React.Component {
       isDraw: false,
     }
 
+    this.baseState = this.state;
   }
 
   render() {
@@ -25,12 +26,21 @@ export default class StepTwo extends React.Component {
       <div className="game__board__step-two">
         <div className="step-two__figure step-two__figure__user">
           <p className="font-body_m color-white step-two__member-name">YOU PICKED</p>
-          <Figure value={this.props.value}/>
+          <Figure
+           value={this.props.value}/>
         </div>
         {this.state.isRivalFigure ? 
           <div className="step-two__winner-status">
-            <h2 className="font-head_l color-white">YOU {this.state.isUserWin ? `WIN` : `LOSE`}</h2>
-            <button className="button button_theme_white">PLAY AGAIN</button>
+            <h2 className="font-head_l color-white">
+              {this.state.isDraw ? 'DRAW' :  this.state.isUserWin ? `YOU WIN` : `YOU LOSE`}
+            </h2>
+            <button
+             className="button button_theme_white"
+             onClick={() => {
+              this.props.setValue(null);
+              this._resetComponent();
+             }}
+             >PLAY AGAIN</button>
           </div> : null}
         <RivalFigure
          value={this.state.rivalFigureValue}
@@ -61,11 +71,22 @@ export default class StepTwo extends React.Component {
     };
 
     const isUserWinner = rules[userFigure] === rivalFigure;
+    const isDraw = userFigure === rivalFigure;
 
+    // Rerender stepTwo board with new state
     this.setState(state => ({
       ...state,
       isUserWin: isUserWinner,
+      isDraw: isDraw,
     })); 
+
+    // Notify Game to change Result
+    if (this.state.isUserWin) return this.props.checkWinner();
   }
-  
+
+  // Reset previous state when change steps (on Play Again button)
+  _resetComponent() {
+    this.setState(this.baseState);
+  }
+ 
 }

@@ -19,7 +19,9 @@ export default class Board extends React.Component {
         setValue={(value) => this.setValue(value)}/> 
   
         <StepTwo
-        value={this.state.figureValue}/>
+        value={this.state.figureValue}
+        setValue={(value) => this.setValue(value)}
+        checkWinner = {() => this.props.checkWinner()}/>
       </div>
     );
   }

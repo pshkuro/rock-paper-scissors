@@ -1,5 +1,4 @@
-$tablet: 1366px;
-$mobile: 375px;
+@import './styles/variables.scss';
 
 body {
   margin:0;
@@ -10,7 +9,7 @@ body {
 }
 
 .container {
-  max-width: auto;
+  max-width: $desktop;
   margin: 0 auto;
   padding: 0 32px;
   box-sizing: border-box;
@@ -29,4 +28,16 @@ h1, h2, h3, h4 {
 .App {
   padding: 50px 0;
   background-image: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+
+@media(max-width: $desktop) {
+  .container {
+    max-width: $tablet;
+  }
+}
+
+@media(max-width: $tablet) {
+  .container {
+    max-width: $mobile;
+  }
 }

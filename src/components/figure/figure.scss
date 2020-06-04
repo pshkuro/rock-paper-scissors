@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .game__figure {
   position: relative;
   width: 152px;
@@ -7,6 +9,14 @@
   border: 25px  solid;
   margin-bottom: 35px;
   cursor: pointer;
+
+  @media(max-width: $tablet) {
+    width: 94px;
+    height: 94px;
+    border: 15px solid;
+    margin-bottom: 20px;
+  }
+
 
   &::before {
     content: '';
@@ -23,21 +33,38 @@
     height: 100%;
     box-shadow: inset 0px 8px 0 0px hsl(228, 23.2%, 78%);
     border-radius: 50%;
+
+    @media(max-width: $tablet) {
+      box-shadow: inset 0px 6px 0 0px hsl(228, 23.2%, 78%);
+    }
   }
 
   &-paper {
     border-color: #516ef4;
-    box-shadow: 0px 9px 0 0px hsl(229, 64.4%, 46.3%);     
+    box-shadow: 0px 9px 0 0px hsl(229, 64.4%, 46.3%);  
+    
+    @media(max-width: $tablet) {
+      box-shadow: 0px 6px 0 0px hsl(229, 64.4%, 46.3%);  
+    }
   }
 
   &-rock {
     border-color: #de3857;
     box-shadow: 0px 9px 0 0px hsl(347, 75.4%, 35.1%); 
+
+    @media(max-width: $tablet) {
+      box-shadow: 0px 6px 0 0px hsl(347, 75.4%, 35.1%); 
+    }
+    
   }
 
   &-scissors {
     border-color: #eda81a;
     box-shadow: 0px 9px 0 0px hsl(28, 76.1%, 44.3%); 
+
+    @media(max-width: $tablet) {
+      box-shadow: 0px 6px 0 0px hsl(28, 76.1%, 44.3%); 
+    }
   }
 
 }

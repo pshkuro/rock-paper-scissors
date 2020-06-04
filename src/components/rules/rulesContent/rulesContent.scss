@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .game__rules__content {
   display: flex;
   justify-content: center;
@@ -12,27 +14,48 @@
 
   .rules__content {
     &__container {
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
       padding: 32px;
       max-width: 400px;
       max-height: 415px;
       background-color: #ffffff;
       border-radius: 8px;
+
+      @media(max-width: $tablet) {
+        padding: 100px 32px 65px 32px;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: none;
+      }
     }
 
-    &__row__header{
-      display: flex;
-      justify-content: space-between;
-    }
 
     &__close {
       min-width: 20px;
       min-height: 20px;
       background: url(../../../images/icon-close.svg) no-repeat 100%;
       cursor: pointer;
+
+      @media(max-width: $tablet) {
+        order: 1;
+      }
+      
     }
 
     &__row__image {
-      margin-top: 45px;
+      margin: 45px auto 0px auto;
+
+      @media(max-width: $tablet) {
+        margin: 0;
+        text-align: center;
+      }
+      
     }
   }
 

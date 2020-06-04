@@ -1,6 +1,13 @@
+@import '../../styles/variables.scss';
+
 .game__rules {
   &__button {
     display: flex;
     justify-content: flex-end;
+
+    @media(max-width: $desktop) {
+      justify-content: center;
+      margin-top: 50px;
+    }
   }
 }

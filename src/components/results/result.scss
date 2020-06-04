@@ -1,14 +1,24 @@
+@import '../../styles//variables.scss';
+
 .game__header {
   display: flex;
   justify-content: space-between;
   max-width: 700px;
-  padding: 18px 33px;;
+  padding: 18px 33px;
   border: 3px hsla(0, 0%, 100%, 0.29) solid;
   border-radius: 15px;
   margin: 0 auto;
 
+  @media(max-width: $tablet) {
+    padding: 12px;
+  }
+
   &__title {
     margin: 10px 0;
+
+    @media(max-width: $tablet) {
+      margin-left: 10px;
+    }
   }
 
   .game__results {
@@ -16,6 +26,11 @@
     padding: 18px 45px;
     background-color: #ffffff;
     border-radius: 15px;
+
+    @media(max-width: $tablet) {
+      padding: 12px 24px;
+      border-radius: 4px;
+    }
   }
 
 

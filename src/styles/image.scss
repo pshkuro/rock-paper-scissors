@@ -1,12 +1,30 @@
+@import './variables.scss';
+
 $height: 80px;
 
 .img__figure {
   height: $height;
   width: auto;
+
+  @media(max-width: $tablet) {
+    height: 50px;
+  }
+}
+
+.img__rules {
+  @media(max-width: $tablet) {
+    width: 100%;
+  }
 }
 
 .game__board__step-two {
   .img__figure {
     height: 120px;
+
+    @media(max-width: $tablet) {
+      height: 50px;
+    }
+    
   }
 }
+

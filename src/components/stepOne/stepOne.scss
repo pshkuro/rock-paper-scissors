@@ -1,3 +1,5 @@
+@import '../../styles//variables.scss';
+
 .game__board__step-one {
   background: url('../../images/bg-triangle.svg') no-repeat center;
   background-size: 50%;
@@ -6,4 +8,15 @@
   width: 600px;
   flex-wrap: wrap;
   margin: 0 auto;
+
+  @media(max-width: $tablet) {
+    width: 100%;
+    background-size: 70%;
+  }
+
+  .game__figure-paper {
+    @media(max-width: $tablet) {
+      margin-right: auto;
+    }
+  }
 }

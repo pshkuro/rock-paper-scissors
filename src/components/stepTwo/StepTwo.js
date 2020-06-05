@@ -5,6 +5,12 @@ import RivalFigure from '../stepTwo/rivalFigure/RivalFigure';
 import {FIGURES} from '../../const';
 import {getRandomArrayItem} from '../../utils.js/common';
 
+const WINNER = {
+  user: 'user',
+  rival: 'rival',
+  draw: 'draw',
+}
+
 export default class StepTwo extends React.Component {
   constructor(props) {
     super(props);
@@ -12,8 +18,7 @@ export default class StepTwo extends React.Component {
     this.state = {
       isRivalFigure: false,
       rivalFigureValue: null,
-      isUserWin: false,
-      isDraw: false,
+      winner: null,
     }
 
     this.baseState = this.state;
@@ -22,17 +27,22 @@ export default class StepTwo extends React.Component {
   render() {
     if (!this.props.value) return null;
 
+    const winnerClass = 'game__figure__winner';
+    const isUserWinner = this.state.winner === WINNER.user ? winnerClass : null;
+    const isRivalWinner = this.state.winner === WINNER.rival ? winnerClass : null;
+
     return(
       <div className="game__board__step-two">
         <div className="step-two__figure step-two__figure__user">
           <p className="font-body_m color-white step-two__member-name">YOU PICKED</p>
           <Figure
-           value={this.props.value}/>
+           value={this.props.value}
+           winnerClass={isUserWinner}/>
         </div>
         {this.state.isRivalFigure ? 
           <div className="step-two__winner-status">
             <h2 className="font-head_l color-white">
-              {this.state.isDraw ? 'DRAW' :  this.state.isUserWin ? `YOU WIN` : `YOU LOSE`}
+              {this.state.winner === WINNER.draw ? 'DRAW' :  this.state.winner === WINNER.user ? `YOU WIN` : `YOU LOSE`}
             </h2>
             <button
              className="button button_theme_white"
@@ -44,6 +54,7 @@ export default class StepTwo extends React.Component {
           </div> : null}
         <RivalFigure
          value={this.state.rivalFigureValue}
+         winnerClass={isRivalWinner}
          showRivalFigure={() => this.showRivalFigure()}/>
       </div>
     );
@@ -72,16 +83,16 @@ export default class StepTwo extends React.Component {
 
     const isUserWinner = rules[userFigure] === rivalFigure;
     const isDraw = userFigure === rivalFigure;
+    const winner = isDraw ? WINNER.draw : isUserWinner ? WINNER.user : WINNER.rival;
 
     // Rerender stepTwo board with new state
     this.setState(state => ({
       ...state,
-      isUserWin: isUserWinner,
-      isDraw: isDraw,
+      winner: winner,
     })); 
 
     // Notify Game to change Result
-    if (this.state.isUserWin) return this.props.checkWinner();
+    if (this.state.winner === WINNER.user) return this.props.checkWinner();
   }
 
   // Reset previous state when change steps (on Play Again button)

@@ -1,4 +1,4 @@
-@import '../../styles//variables.scss';
+@import '../../styles/variables.scss';
 
 .game__header {
   display: flex;
@@ -21,6 +21,7 @@
     }
   }
 
+
   .game__results {
     text-align: center;
     padding: 18px 45px;
@@ -30,6 +31,12 @@
     @media(max-width: $tablet) {
       padding: 12px 24px;
       border-radius: 4px;
+    }
+
+    &__title {
+      @media(max-width: $tablet) {
+        font-size: 10px;
+      }
     }
   }
 

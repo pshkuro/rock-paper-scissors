@@ -12,7 +12,7 @@ export default class StepOne extends React.Component {
         {FIGURES.map((figure) => {
           return <Figure
                   value={figure}
-                  onClick={(value) => this.props.setValue(value)}
+                  onClick={() => this.props.setValue(figure)}
                   key={figure}/>
         })}
       </div>

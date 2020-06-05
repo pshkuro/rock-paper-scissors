@@ -5,8 +5,8 @@ export default class Figure extends React.Component {
   render() {
     return(
       <div
-        className={`game__figure game__figure-${this.props.value}`}
-        onClick={() => this.props.onClick(this.props.value)}
+        className={`game__figure game__figure-${this.props.value} ${this.props.winnerClass}`}
+        onClick={this.props.onClick}
       >
         <div className="game__figure__shadow-container">
           <img
